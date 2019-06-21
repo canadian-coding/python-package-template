@@ -10,6 +10,7 @@
 1. Python 3+
 2. Pip for python 3+
 3. Dependencies found inside requirements.txt; Install python dependencies using: ``` pip3 install -r requirements.txt ```
+ Alternatively you could use the [pipenv package](https://docs.pipenv.org/en/latest/)
 
 ### Arguments
 ``` If you are writing a script, include some helpful/often used arguments here ```
