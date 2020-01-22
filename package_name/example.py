@@ -1,0 +1,1 @@
+"""This file could be imported using package_name.example"""

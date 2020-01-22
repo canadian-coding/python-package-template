@@ -1,0 +1,12 @@
+site_name: project_name
+
+nav:
+    - Home: index.md
+
+theme: readthedocs
+
+repo_url: Fill in your repo url here
+
+site_description: This is the documentation site for project_name.
+
+site_author: Your name here
