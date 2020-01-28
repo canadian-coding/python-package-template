@@ -1,4 +1,4 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6j1I3mC0BR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Video guide for usage of the package template can be found [here](https://www.youtube.com/watch?v=6j1I3mC0BR0).
 
 # Python Package Template
 
