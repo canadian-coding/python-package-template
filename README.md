@@ -6,6 +6,10 @@ Video guide for usage of the package template can be found [here](https://www.yo
 
 
 
+This file is meant to be a template but my recommendation is to fork it and make it your own for what suits your projects. After completing the TODO section take a look at the end of the file for final touches.
+
+
+
 ## TODO
 
 - [ ] Replace all instances of package_name in this file
@@ -148,5 +152,12 @@ There are 4 main sessions built into the noxfile and they can be run using ```no
 
 
 
+---
+
+## Final Touches
+
+Now that you have finished the todo section (and assuming you want people to be able to pip install without downloading the source) it can be published on [PyPi](https://pypi.org/) by first signing up for an account, then running ```nox -s release```. The release session will build a distribution, prompt you to make sure you have filled out all the information necessary and then start the upload to PyPi (you will then have to login to PyPi through the command line).
 
 
+
+There are some optional extras, for example if you signup for a [readthedocs](https://readthedocs.org/) account you can host your documentation with a single click. Alternatively if you want to use a custom theme for your documentation you can use github pages and run ```mkdocs gh-deploy``` which will do the documentation building for you. From there you can follow [this guide](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) to setup your github pages for your project, by default running ```mkdocs gh-deploy``` will create a gh-pages branch for you so you can just hit that checkbox in the repositories settings to get setup.

@@ -18,10 +18,6 @@ def build(session):
     # Create source distribution
     session.run("python", "setup.py", "sdist")
 
-    # Build Documentation
-    session.install("mkdocs")
-    session.run("mkdocs", "build")
-
     # Create wheelfile
     session.install("wheel")
     session.run("python", "setup.py", "bdist_wheel", "--universal")
