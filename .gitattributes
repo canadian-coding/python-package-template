@@ -1,0 +1,3 @@
+# Ignore web dev non-code files
+*.html linguist-detectable=false
+*.css linguist-detectable=false
