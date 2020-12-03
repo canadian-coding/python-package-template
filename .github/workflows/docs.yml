@@ -26,23 +26,23 @@ jobs:
         python -m pip install --upgrade pdoc3
         python -m pip install --upgrade mkdocs
     # if doc_type is mkdocs
-
     - name: Deploy docs
-    uses: mhausenblas/mkdocs-deploy-gh-pages@master
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    if: ${{ github.event.inputs.doc_system }} == "mkdocs"
+      uses: mhausenblas/mkdocs-deploy-gh-pages@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      if: ${{ github.event.inputs.doc_system }} == "mkdocs"
 
-
-    # If doc_type is pdoc
-    - name: remove source files
+    # if doc_type is pdoc
+    - name: Remove source files
       run: rm -rf *
       if: ${{ github.event.inputs.doc_system }} == "pdoc"
+
     - name: build html files
       run: |
         python -m pdoc ezspreadsheet --html --force
         mv "html/ezspreadsheet.html" "html/index.html"
       if: ${{ github.event.inputs.doc_system }} == "pdoc"
+
     - name: Deploy Docs
       uses: peaceiris/actions-gh-pages@v3
       with:
