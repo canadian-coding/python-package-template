@@ -7,6 +7,10 @@ on:
         description: Either pdoc, or mkdocs
         default: pdoc
         required: true
+      project_name:
+        description: if your package is called ahd, this would be ahd
+        default: package_name
+        required: true
 
 jobs:
   build:
@@ -30,22 +34,28 @@ jobs:
       uses: mhausenblas/mkdocs-deploy-gh-pages@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      if: ${{ github.event.inputs.doc_system }} == "mkdocs"
+      if: ${{ github.event.inputs.doc_system == 'mkdocs' }}
 
     # if doc_type is pdoc
     - name: Remove source files
       run: rm -rf *
-      if: ${{ github.event.inputs.doc_system }} == "pdoc"
+      if: ${{ github.event.inputs.doc_system  == 'pdoc'}}
 
     - name: build html files
       run: |
-        python -m pdoc ezspreadsheet --html --force
+        python -m pdoc ${{ github.event.inputs.package_name }} --html --force
         mv "html/ezspreadsheet.html" "html/index.html"
-      if: ${{ github.event.inputs.doc_system }} == "pdoc"
+        cd html
+        ls
+        mv ${{ github.event.inputs.package_name }}/* .
+        ls
+        cd ..
+        ls
+      if: ${{ github.event.inputs.doc_system == 'pdoc' }}
 
     - name: Deploy Docs
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./html
-      if: ${{ github.event.inputs.doc_system }} == "pdoc"
+      if: ${{ github.event.inputs.doc_system == 'pdoc' }}
